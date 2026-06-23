@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>HR Safety Campus</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/white.min.css"
+    />
+
+    <style>
+      :root {
+        --r-main-color: #2c3e50;
+        --r-heading-color: #1a508b;
+      }
+      .reveal h3 {
+        text-transform: none !important;
+        font-weight: 700;
+        color: var(--r-heading-color);
+      }
+      .reveal section img {
+        border: 2px solid #eee;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-height: 450px !important;
+      }
+      .badge {
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 20px;
+        background: #1a508b;
+        color: white;
+        font-size: 0.4em !important;
+        margin: 5px;
+      }
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        align-items: center;
+      }
+      .text-small {
+        font-size: 0.6em !important;
+        text-align: left;
+      }
+      .highlight {
+        color: #e74c3c;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- SLIDE 1: JUDUL -->
+        <section data-background-color="#1a508b">
+          <h2 style="color: white">
+            HR Safety Campus - Sistem Manajemen Tenaga Kerja & Klaim
+            Transportasi
+          </h2>
+          <hr />
+          <p style="color: #ecf0f1; font-size: 0.8em">
+            Presentasi Sidang Magang - PT. Pratama Nusantara Sakti
+          </p>
+          <p style="color: white; font-size: 0.7em; margin-top: 50px">
+            Oleh: <strong>Nima Tamren</strong>
+          </p>
+        </section>
+
+        <!-- SLIDE 2: MENU UTAMA -->
+        <section>
+          <h3>Tampilan Antarmuka Utama</h3>
+          <img src="menu-utama.png" alt="Main Menu" />
+          <p class="text-small" style="text-align: center">
+            Arsitektur Dashboard berbasis kartu (Grid System) untuk akses cepat
+            ke setiap modul utama.
+          </p>
+        </section>
+
+        <!-- SLIDE 3: RBAC (User Management) -->
+        <section>
+          <h3>Manajemen Pengguna & RBAC</h3>
+          <div class="grid-2">
+            <img src="user-management.png" alt="List User" />
+            <img src="tambah-user.png" alt="Form Tambah User" />
+          </div>
+          <div class="text-small">
+            <ul>
+              <li>
+                <strong>Administrator:</strong> Akses penuh via
+                <code>Gate::before</code>.
+              </li>
+              <li>
+                <strong>User Biasa:</strong> Izin akses menu ditentukan secara
+                granular (Permissions Array).
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- SLIDE 4: REGISTRASI -->
+        <section>
+          <h3>Alur A: Registrasi Tenaga Kerja</h3>
+          <div class="grid-2">
+            <img src="form-registrasi.png" alt="Form Registrasi" />
+            <div class="text-small">
+              <p><strong>Fitur Unggulan:</strong></p>
+              <ul>
+                <li>Auto-ID (YYYYXXXX).</li>
+                <li>Validasi NIK 16 Digit.</li>
+                <li>Integrasi API Wilayah (IndoRegion).</li>
+                <li>
+                  Status Otomatis: <span class="highlight">Pending</span> jika
+                  data belum lengkap (misal: Fingerprint kosong).
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 5: APPROVAL -->
+        <section>
+          <h3>Kontrol Kualitas: Approval</h3>
+          <img src="approval-pending.png" alt="Approval Page" />
+          <p class="text-small" style="text-align: center">
+            Hanya data berstatus "Lengkap" yang dapat di-approve massal untuk
+            menjadi karyawan Aktif.
+          </p>
+        </section>
+
+        <!-- SLIDE 6: KLAIM TRANSPORT -->
+        <section>
+          <h3>Alur B: Klaim Transportasi</h3>
+          <div class="grid-2">
+            <div class="text-small">
+              <p><strong>Logika Bisnis Berlapis:</strong></p>
+              <ul>
+                <li>
+                  Cek masa kerja (&ge;60 hari untuk IN, &ge;90 hari untuk OUT).
+                </li>
+                <li>Validasi jeda klaim 365 hari.</li>
+                <li>Nominal otomatis berdasarkan Tabel Tarif.</li>
+              </ul>
+            </div>
+            <img src="input-claim.png" alt="Input Claim" />
+          </div>
+        </section>
+
+        <!-- SLIDE 7: MANAGE RATES -->
+        <section>
+          <h3>Manajemen Tarif & Audit Trail</h3>
+          <img src="manage-rates.png" alt="Manage Rates" />
+          <p class="text-small">
+            Setiap update tarif akan mengarsipkan data lama secara otomatis
+            (Rate Periods) dan wajib melampirkan dokumen PDF pengesahan.
+          </p>
+        </section>
+
+        <!-- SLIDE 8: SURAT PERMIT -->
+        <section>
+          <h3>Alur C: Surat Izin Keluar (Permit)</h3>
+          <img src="input-permit.png" alt="Input Permit" />
+          <p class="text-small" style="text-align: center">
+            Otomasi nomor surat & perubahan status
+            <span class="highlight">Non-Aktif</span> jika memilih jenis "Keluar
+            Selamanya".
+          </p>
+        </section>
+
+        <!-- SLIDE 9: DATABASE PEGAWAI -->
+        <section>
+          <h3>Master Data & History</h3>
+          <img src="database-pegawai.png" alt="Database Pegawai" />
+          <p class="text-small" style="text-align: center">
+            Manajemen data aktif, fitur Re-Hire (Soft Delete), dan cetak ID Card
+            per individu atau rombongan.
+          </p>
+        </section>
+
+        <!-- SLIDE 10: DASHBOARD ANALITIK -->
+        <section>
+          <h3>Visualisasi & Analitik</h3>
+          <img src="dashboard.png" alt="Dashboard Analitik" />
+          <p class="text-small" style="text-align: center">
+            Ringkasan populasi, status fingerprint, dan demografi menggunakan
+            <strong>Chart.js</strong>.
+          </p>
+        </section>
+
+        <!-- SLIDE 11: TEKNIS & SOROTAN -->
+        <section>
+          <h3>Tantangan & Solusi Teknis</h3>
+          <div class="text-small">
+            <p>
+              ✅ <strong>Migrasi Data:</strong> Deduplikasi NIK pada ~4.000 data
+              MS Access.
+            </p>
+            <p>
+              ✅ <strong>Konsistensi:</strong> Penomoran berbasis
+              <code>max(no_id)</code> untuk menghindari duplikasi pasca
+              penghapusan data.
+            </p>
+            <p>
+              ✅ <strong>Integritas:</strong> Penggunaan
+              <code>DB::transaction</code> pada proses pengarsipan tarif dan
+              klaim massal.
+            </p>
+          </div>
+          <div style="margin-top: 20px">
+            <span class="badge">Laravel 12</span>
+            <span class="badge">MySQL</span> <span class="badge">Tailwind</span>
+            <span class="badge">DomPDF</span>
+          </div>
+        </section>
+
+        <!-- SLIDE 12: PENUTUP -->
+        <section data-background-color="#1a508b">
+          <h2 style="color: white">Terima Kasih</h2>
+          <p style="color: #bdc3c7">Ada pertanyaan atau masukan?</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: "c/t",
+        transition: "fade",
+        center: true,
+      });
+    </script>
+  </body>
+</html>
