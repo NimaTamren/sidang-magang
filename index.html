@@ -1,244 +1,704 @@
 <!doctype html>
 <html lang="id">
   <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-
-    <title>HR Safety Campus</title>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidang Magang - Nima Tamren</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/white.min.css"
-    />
-
     <style>
       :root {
-        --r-main-color: #2c3e50;
-        --r-heading-color: #1a508b;
+        --bg-main: #070709;
+        --bg-card: #111116;
+        --accent-red: #ff2a2a;
+        --accent-red-glow: rgba(255, 42, 42, 0.2);
+        --text-primary: #ffffff;
+        --text-secondary: #888890;
+        --border-color: #22222a;
       }
-      .reveal h3 {
-        text-transform: none !important;
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg-main);
+        color: var(--text-primary);
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+        background-image:
+          radial-gradient(
+            circle at 15% 50%,
+            rgba(255, 42, 42, 0.03),
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 85% 30%,
+            rgba(255, 42, 42, 0.04),
+            transparent 25%
+          );
+      }
+
+      /* typography */
+      h1,
+      h2,
+      h3,
+      .nav-title {
+        font-family: "Space Grotesk", sans-serif;
+      }
+
+      .text-red {
+        color: var(--accent-red);
+      }
+      .text-dim {
+        color: var(--text-secondary);
+      }
+
+      /* --- SIDEBAR --- */
+      .sidebar {
+        width: 320px;
+        background-color: var(--bg-main);
+        border-right: 1px solid var(--border-color);
+        display: flex;
+        flex-direction: column;
+        padding: 30px 20px;
+        position: relative;
+        z-index: 10;
+      }
+
+      .sidebar-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 50px;
+        padding-left: 10px;
+      }
+
+      .logo-box {
+        width: 8px;
+        height: 24px;
+        background-color: var(--accent-red);
+        border-radius: 4px;
+        box-shadow: 0 0 10px var(--accent-red-glow);
+      }
+
+      .nav-title {
+        font-size: 14px;
+        letter-spacing: 2px;
+        font-weight: 600;
+        color: var(--text-secondary);
+      }
+
+      .nav-menu {
+        list-style: none;
+        flex-grow: 1;
+        position: relative;
+      }
+
+      /* Timeline Line */
+      .nav-menu::before {
+        content: "";
+        position: absolute;
+        left: 15px;
+        top: 10px;
+        bottom: 10px;
+        width: 1px;
+        background-color: var(--border-color);
+        z-index: -1;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: var(--text-secondary);
+        font-size: 14px;
+      }
+
+      .nav-item:hover {
+        color: var(--text-primary);
+      }
+
+      .nav-dot {
+        width: 10px;
+        height: 10px;
+        background-color: var(--bg-main);
+        border: 2px solid var(--border-color);
+        border-radius: 50%;
+        margin-left: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-item.active {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      .nav-item.active .nav-dot {
+        background-color: var(--accent-red);
+        border-color: var(--accent-red);
+        box-shadow: 0 0 10px var(--accent-red-glow);
+      }
+
+      /* Profile Card Bottom */
+      .profile-card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: auto;
+      }
+
+      .profile-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+
+      .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 42, 42, 0.1);
+        border: 1px solid rgba(255, 42, 42, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-weight: 700;
-        color: var(--r-heading-color);
+        color: var(--accent-red);
+        font-family: "Space Grotesk", sans-serif;
       }
-      .reveal section img {
-        border: 2px solid #eee;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        max-height: 450px !important;
+
+      .profile-info h4 {
+        font-size: 14px;
+        margin-bottom: 3px;
       }
-      .badge {
-        display: inline-block;
-        padding: 5px 12px;
+      .profile-info p {
+        font-size: 10px;
+        color: var(--text-secondary);
+        letter-spacing: 1px;
+      }
+
+      .profile-details {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        margin-top: 8px;
+      }
+
+      /* --- MAIN CONTENT --- */
+      .main-content {
+        flex-grow: 1;
+        padding: 40px 60px;
+        overflow-y: auto;
+        position: relative;
+      }
+
+      /* Container with frame */
+      .content-frame {
+        border: 1px solid rgba(255, 255, 255, 0.05);
         border-radius: 20px;
-        background: #1a508b;
-        color: white;
-        font-size: 0.4em !important;
-        margin: 5px;
+        height: 100%;
+        padding: 50px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02) 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        position: relative;
       }
+
+      /* Corner accents */
+      .content-frame::before,
+      .content-frame::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border: 1px solid var(--text-secondary);
+        opacity: 0.3;
+      }
+      .content-frame::before {
+        top: 20px;
+        left: 20px;
+        border-right: none;
+        border-bottom: none;
+      }
+      .content-frame::after {
+        bottom: 20px;
+        right: 20px;
+        border-left: none;
+        border-top: none;
+      }
+
+      .slide-section {
+        display: none;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+      .slide-section.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .module-badge {
+        display: inline-block;
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border-color);
+        padding: 6px 15px;
+        border-radius: 20px;
+        font-size: 11px;
+        letter-spacing: 1px;
+        color: var(--text-secondary);
+        margin-bottom: 25px;
+      }
+
+      .slide-title {
+        font-size: 36px;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .slide-desc {
+        color: var(--text-secondary);
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 40px;
+        max-width: 800px;
+      }
+
+      /* Grid Layouts */
       .grid-2 {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        gap: 30px;
+      }
+
+      .card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 42, 42, 0.5),
+          transparent
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .card:hover::before {
+        opacity: 1;
+      }
+
+      .card-title {
+        font-size: 18px;
+        color: var(--text-primary);
+        margin-bottom: 15px;
+        display: flex;
         align-items: center;
+        gap: 10px;
       }
-      .text-small {
-        font-size: 0.6em !important;
-        text-align: left;
+
+      .card-text {
+        color: var(--text-secondary);
+        font-size: 14px;
+        line-height: 1.6;
       }
-      .highlight {
-        color: #e74c3c;
-        font-weight: bold;
+
+      .list-styled {
+        list-style: none;
+        margin-top: 20px;
+      }
+      .list-styled li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 15px;
+        font-size: 14px;
+        color: var(--text-secondary);
+      }
+      .list-styled li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 6px;
+        height: 6px;
+        background-color: var(--accent-red);
+        border-radius: 50%;
+      }
+
+      /* Image Placeholder styling */
+      .img-container {
+        width: 100%;
+        height: 250px;
+        background-color: #1a1a24;
+        border: 1px dashed var(--border-color);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-secondary);
+        margin-top: 20px;
+        overflow: hidden;
+      }
+      .img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
     </style>
   </head>
   <body>
-    <div class="reveal">
-      <div class="slides">
-        <!-- SLIDE 1: JUDUL -->
-        <section data-background-color="#1a508b">
-          <h2 style="color: white">
-            HR Safety Campus - Sistem Manajemen Tenaga Kerja & Klaim
-            Transportasi
-          </h2>
-          <hr />
-          <p style="color: #ecf0f1; font-size: 0.8em">
-            Presentasi Sidang Magang - PT. Pratama Nusantara Sakti
-          </p>
-          <p style="color: white; font-size: 0.7em; margin-top: 50px">
-            Oleh: <strong>Nima Tamren</strong>
-          </p>
-        </section>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-box"></div>
+        <div class="nav-title">PROJECT ROADMAP</div>
+      </div>
 
-        <!-- SLIDE 2: MENU UTAMA -->
-        <section>
-          <h3>Tampilan Antarmuka Utama</h3>
-          <img src="menu-utama.png" alt="Main Menu" />
-          <p class="text-small" style="text-align: center">
-            Arsitektur Dashboard berbasis kartu (Grid System) untuk akses cepat
-            ke setiap modul utama.
-          </p>
-        </section>
+      <ul class="nav-menu">
+        <li class="nav-item active" onclick="switchSlide('slide1', this)">
+          <div class="nav-dot"></div>
+          Latar Belakang
+        </li>
+        <li class="nav-item" onclick="switchSlide('slide2', this)">
+          <div class="nav-dot"></div>
+          Maksud & Tujuan
+        </li>
+        <li class="nav-item" onclick="switchSlide('slide3', this)">
+          <div class="nav-dot"></div>
+          Tampilan Utama
+        </li>
+        <li class="nav-item" onclick="switchSlide('slide4', this)">
+          <div class="nav-dot"></div>
+          Fitur Teknis (RBAC)
+        </li>
+        <li class="nav-item" onclick="switchSlide('slide5', this)">
+          <div class="nav-dot"></div>
+          Kesimpulan
+        </li>
+      </ul>
 
-        <!-- SLIDE 3: RBAC (User Management) -->
-        <section>
-          <h3>Manajemen Pengguna & RBAC</h3>
-          <div class="grid-2">
-            <img src="user-management.png" alt="List User" />
-            <img src="tambah-user.png" alt="Form Tambah User" />
+      <div class="profile-card">
+        <div class="profile-header">
+          <div class="avatar">NT</div>
+          <div class="profile-info">
+            <h4>Nima Tamren</h4>
+            <p>STUDENT PROFILE</p>
           </div>
-          <div class="text-small">
-            <ul>
+        </div>
+        <div class="profile-details">
+          <span class="text-dim">PERUSAHAAN</span>
+          <span class="text-red">PT Pratama N.S</span>
+        </div>
+        <div class="profile-details">
+          <span class="text-dim">SISTEM</span>
+          <span>HR Safety Campus</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-frame">
+        <section id="slide1" class="slide-section active">
+          <div class="module-badge">
+            MODULE 1 &nbsp;&bull;&nbsp; LATAR BELAKANG MASALAH
+          </div>
+          <h1 class="slide-title">
+            Transformasi Digital <span class="text-red">HR Safety Campus</span>
+          </h1>
+          <p class="slide-desc">
+            Kolaborasi strategis pengembangan sistem manajemen tenaga kerja dan
+            klaim transportasi pada PT. Pratama Nusantara Sakti untuk mengatasi
+            kendala operasional manual.
+          </p>
+
+          <div class="grid-2">
+            <div class="card">
+              <h3 class="card-title">
+                <span class="text-red">!</span> Tantangan & Urgensi
+              </h3>
+              <p class="card-text">
+                Metode konvensional dalam pendataan dan klaim membutuhkan waktu
+                lama dan rentan terhadap kesalahan data.
+              </p>
+              <ul class="list-styled">
+                <li>Proses kerja administratif yang in-efisien.</li>
+                <li>Sulitnya memvalidasi riwayat klaim transportasi.</li>
+                <li>Organisasi dituntut bekerja lebih cepat dan akurat.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Solusi Strategis</h3>
+              <p class="card-text">
+                Membangun ekosistem digital terpusat (Sistem Manajemen Tenaga
+                Kerja & Klaim Transportasi) yang mengotomatisasi validasi dan
+                mempermudah pengawasan.
+              </p>
+              <ul class="list-styled">
+                <li>Otomatisasi Pengecekan Masa Kerja (60/90 Hari).</li>
+                <li>Validasi Jeda Klaim 365 Hari secara *real-time*.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="slide2" class="slide-section">
+          <div class="module-badge">
+            MODULE 2 &nbsp;&bull;&nbsp; KERANGKA PELAKSANAAN
+          </div>
+          <h1 class="slide-title">
+            Maksud, Tujuan & Pelaksanaan
+            <span class="text-red">Kerja Magang</span>
+          </h1>
+          <p class="slide-desc">
+            Kerangka kerja akademis, target pengembangan sistem, serta lini masa
+            operasional selama program magang berlangsung.
+          </p>
+
+          <div class="grid-2">
+            <div class="card">
+              <h3 class="card-title">Maksud & Tujuan</h3>
+              <div
+                style="
+                  margin-top: 15px;
+                  border-left: 2px solid var(--accent-red);
+                  padding-left: 15px;
+                "
+              >
+                <h4
+                  style="
+                    font-size: 12px;
+                    color: var(--text-secondary);
+                    margin-bottom: 5px;
+                  "
+                >
+                  TUJUAN 01: PEMAHAMAN TEKNIS
+                </h4>
+                <p class="card-text">
+                  Meningkatkan pemahaman praktis sebagai *Web Developer* melalui
+                  pengalaman langsung dalam pengembangan aplikasi *enterprise*.
+                </p>
+              </div>
+              <div
+                style="
+                  margin-top: 20px;
+                  border-left: 2px solid var(--border-color);
+                  padding-left: 15px;
+                "
+              >
+                <h4
+                  style="
+                    font-size: 12px;
+                    color: var(--text-secondary);
+                    margin-bottom: 5px;
+                  "
+                >
+                  TUJUAN 02: PENGEMBANGAN SISTEM
+                </h4>
+                <p class="card-text">
+                  Membangun modul Registrasi, Approval, dan Logika Bisnis Klaim
+                  Transportasi berbasis *Framework Modern*.
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Waktu & Prosedur</h3>
+              <ul class="list-styled">
+                <li>
+                  <strong style="color: white">Periode:</strong> Sesuai jadwal
+                  program magang yang ditetapkan.
+                </li>
+                <li>
+                  <strong style="color: white">Metode Kerja:</strong> Melibatkan
+                  siklus *Development*, *Testing*, dan *Deployment*.
+                </li>
+                <li>
+                  <strong style="color: white">Koordinasi:</strong> Pelaporan
+                  progres rutin (*Daily Standup*) bersama tim dan supervisor.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="slide3" class="slide-section">
+          <div class="module-badge">
+            MODULE 3 &nbsp;&bull;&nbsp; ANTARMUKA SISTEM
+          </div>
+          <h1 class="slide-title">
+            Tampilan Antarmuka <span class="text-red">Utama</span>
+          </h1>
+          <p class="slide-desc">
+            Arsitektur Dashboard berbasis kartu (Grid System) yang dirancang
+            untuk memberikan akses navigasi cepat ke setiap modul operasional
+            utama.
+          </p>
+
+          <div class="img-container">
+            <img
+              src="menu-utama.png"
+              alt="Dashboard Utama"
+              onerror="
+                this.style.display = 'none';
+                this.parentNode.innerHTML =
+                  '<span style=\'color: var(--text-secondary)\'>[ Masukkan file menu-utama.png di folder yang sama ]</span>';
+              "
+            />
+          </div>
+        </section>
+
+        <section id="slide4" class="slide-section">
+          <div class="module-badge">
+            MODULE 4 &nbsp;&bull;&nbsp; SOROTAN TEKNIS
+          </div>
+          <h1 class="slide-title">
+            Manajemen Pengguna & <span class="text-red">Keamanan RBAC</span>
+          </h1>
+          <p class="slide-desc">
+            Implementasi *Role-Based Access Control* (RBAC) tingkat lanjut untuk
+            memastikan keamanan dan otorisasi data yang ketat.
+          </p>
+
+          <div class="grid-2">
+            <div class="card">
+              <h3 class="card-title">Mekanisme Hak Akses</h3>
+              <p class="card-text">
+                Menggunakan kombinasi Gate dan Permissions untuk granularitas
+                kontrol.
+              </p>
+              <ul class="list-styled">
+                <li>
+                  <strong style="color: white">Administrator:</strong> Diberikan
+                  akses Bypass mutlak melalui fungsi <code>Gate::before</code>.
+                </li>
+                <li>
+                  <strong style="color: white">User Biasa:</strong> Modul yang
+                  dirender disesuaikan secara dinamis dengan array *Permissions*
+                  mereka.
+                </li>
+              </ul>
+            </div>
+            <div
+              class="img-container"
+              style="height: auto; min-height: 200px; margin-top: 0"
+            >
+              <img
+                src="user-management.png"
+                alt="User Management"
+                onerror="
+                  this.style.display = 'none';
+                  this.parentNode.innerHTML =
+                    '<span style=\'color: var(--text-secondary)\'>[ Masukkan file user-management.png ]</span>';
+                "
+              />
+            </div>
+          </div>
+        </section>
+
+        <section id="slide5" class="slide-section">
+          <div class="module-badge">MODULE 5 &nbsp;&bull;&nbsp; PENUTUP</div>
+          <h1 class="slide-title">
+            Hasil Implementasi & <span class="text-red">Saran</span>
+          </h1>
+          <p class="slide-desc">
+            Sistem HR Safety Campus berhasil diimplementasikan dan telah
+            menyelesaikan tantangan pengelolaan data manual menjadi digital.
+          </p>
+
+          <div class="card" style="margin-bottom: 20px">
+            <h3 class="card-title">Pencapaian Utama</h3>
+            <ul
+              class="list-styled"
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px"
+            >
+              <li>Migrasi dan deduplikasi ribuan data sukses dilakukan.</li>
+              <li>Otomatisasi kalkulasi tarif klaim berjalan 100% akurat.</li>
               <li>
-                <strong>Administrator:</strong> Akses penuh via
-                <code>Gate::before</code>.
+                Integritas database terjaga melalui mekanisme
+                <i>Transaction</i>.
               </li>
               <li>
-                <strong>User Biasa:</strong> Izin akses menu ditentukan secara
-                granular (Permissions Array).
+                Penerapan <i>Soft Delete</i> mengamankan riwayat karyawan.
               </li>
             </ul>
           </div>
-        </section>
 
-        <!-- SLIDE 4: REGISTRASI -->
-        <section>
-          <h3>Alur A: Registrasi Tenaga Kerja</h3>
-          <div class="grid-2">
-            <img src="form-registrasi.png" alt="Form Registrasi" />
-            <div class="text-small">
-              <p><strong>Fitur Unggulan:</strong></p>
-              <ul>
-                <li>Auto-ID (YYYYXXXX).</li>
-                <li>Validasi NIK 16 Digit.</li>
-                <li>Integrasi API Wilayah (IndoRegion).</li>
-                <li>
-                  Status Otomatis: <span class="highlight">Pending</span> jika
-                  data belum lengkap (misal: Fingerprint kosong).
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- SLIDE 5: APPROVAL -->
-        <section>
-          <h3>Kontrol Kualitas: Approval</h3>
-          <img src="approval-pending.png" alt="Approval Page" />
-          <p class="text-small" style="text-align: center">
-            Hanya data berstatus "Lengkap" yang dapat di-approve massal untuk
-            menjadi karyawan Aktif.
+          <h2
+            style="
+              font-family: &quot;Space Grotesk&quot;;
+              font-size: 48px;
+              color: var(--text-secondary);
+              text-align: center;
+              margin-top: 40px;
+            "
+          >
+            Terima Kasih
+          </h2>
+          <p
+            style="
+              text-align: center;
+              color: var(--accent-red);
+              letter-spacing: 2px;
+              font-size: 12px;
+              margin-top: 10px;
+            "
+          >
+            SESI TANYA JAWAB
           </p>
-        </section>
-
-        <!-- SLIDE 6: KLAIM TRANSPORT -->
-        <section>
-          <h3>Alur B: Klaim Transportasi</h3>
-          <div class="grid-2">
-            <div class="text-small">
-              <p><strong>Logika Bisnis Berlapis:</strong></p>
-              <ul>
-                <li>
-                  Cek masa kerja (&ge;60 hari untuk IN, &ge;90 hari untuk OUT).
-                </li>
-                <li>Validasi jeda klaim 365 hari.</li>
-                <li>Nominal otomatis berdasarkan Tabel Tarif.</li>
-              </ul>
-            </div>
-            <img src="input-claim.png" alt="Input Claim" />
-          </div>
-        </section>
-
-        <!-- SLIDE 7: MANAGE RATES -->
-        <section>
-          <h3>Manajemen Tarif & Audit Trail</h3>
-          <img src="manage-rates.png" alt="Manage Rates" />
-          <p class="text-small">
-            Setiap update tarif akan mengarsipkan data lama secara otomatis
-            (Rate Periods) dan wajib melampirkan dokumen PDF pengesahan.
-          </p>
-        </section>
-
-        <!-- SLIDE 8: SURAT PERMIT -->
-        <section>
-          <h3>Alur C: Surat Izin Keluar (Permit)</h3>
-          <img src="input-permit.png" alt="Input Permit" />
-          <p class="text-small" style="text-align: center">
-            Otomasi nomor surat & perubahan status
-            <span class="highlight">Non-Aktif</span> jika memilih jenis "Keluar
-            Selamanya".
-          </p>
-        </section>
-
-        <!-- SLIDE 9: DATABASE PEGAWAI -->
-        <section>
-          <h3>Master Data & History</h3>
-          <img src="database-pegawai.png" alt="Database Pegawai" />
-          <p class="text-small" style="text-align: center">
-            Manajemen data aktif, fitur Re-Hire (Soft Delete), dan cetak ID Card
-            per individu atau rombongan.
-          </p>
-        </section>
-
-        <!-- SLIDE 10: DASHBOARD ANALITIK -->
-        <section>
-          <h3>Visualisasi & Analitik</h3>
-          <img src="dashboard.png" alt="Dashboard Analitik" />
-          <p class="text-small" style="text-align: center">
-            Ringkasan populasi, status fingerprint, dan demografi menggunakan
-            <strong>Chart.js</strong>.
-          </p>
-        </section>
-
-        <!-- SLIDE 11: TEKNIS & SOROTAN -->
-        <section>
-          <h3>Tantangan & Solusi Teknis</h3>
-          <div class="text-small">
-            <p>
-              ✅ <strong>Migrasi Data:</strong> Deduplikasi NIK pada ~4.000 data
-              MS Access.
-            </p>
-            <p>
-              ✅ <strong>Konsistensi:</strong> Penomoran berbasis
-              <code>max(no_id)</code> untuk menghindari duplikasi pasca
-              penghapusan data.
-            </p>
-            <p>
-              ✅ <strong>Integritas:</strong> Penggunaan
-              <code>DB::transaction</code> pada proses pengarsipan tarif dan
-              klaim massal.
-            </p>
-          </div>
-          <div style="margin-top: 20px">
-            <span class="badge">Laravel 12</span>
-            <span class="badge">MySQL</span> <span class="badge">Tailwind</span>
-            <span class="badge">DomPDF</span>
-          </div>
-        </section>
-
-        <!-- SLIDE 12: PENUTUP -->
-        <section data-background-color="#1a508b">
-          <h2 style="color: white">Terima Kasih</h2>
-          <p style="color: #bdc3c7">Ada pertanyaan atau masukan?</p>
         </section>
       </div>
-    </div>
+    </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.js"></script>
     <script>
-      Reveal.initialize({
-        hash: true,
-        slideNumber: "c/t",
-        transition: "fade",
-        center: true,
-      });
+      function switchSlide(slideId, clickedElement) {
+        // Remove active class from all nav items
+        document.querySelectorAll(".nav-item").forEach((item) => {
+          item.classList.remove("active");
+        });
+        // Add active class to clicked nav item
+        clickedElement.classList.add("active");
+
+        // Hide all slides
+        document.querySelectorAll(".slide-section").forEach((slide) => {
+          slide.classList.remove("active");
+        });
+        // Show target slide
+        document.getElementById(slideId).classList.add("active");
+      }
     </script>
   </body>
 </html>
