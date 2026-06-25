@@ -313,6 +313,42 @@
   body[data-mode="full"] .stage{left:0}
   body[data-mode="full"] .controls{display:none}
 
+  /* ===== gallery / screenshots ===== */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+  .shot{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);cursor:pointer;transition:.25s;display:flex;flex-direction:column}
+  .shot:hover{border-color:rgba(77,141,255,.45);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.45)}
+  .shot.hero{grid-column:1/-1;flex-direction:row}
+  .shot .bar{display:flex;align-items:center;gap:6px;padding:9px 13px;border-bottom:1px solid var(--line-soft);background:rgba(8,13,26,.7)}
+  .shot.hero .bar{display:none}
+  .shot .bar .d{width:8px;height:8px;border-radius:50%;background:rgba(120,150,210,.3)}
+  .shot .bar .fn{margin-left:8px;font-family:var(--mono);font-size:9px;letter-spacing:.05em;color:var(--ink-faint)}
+  .shot .thumb{position:relative;aspect-ratio:16/10;background:#0a0f1c;overflow:hidden}
+  .shot.hero .thumb{aspect-ratio:auto;width:60%;min-height:240px}
+  .shot .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+  .shot .thumb .miss{position:absolute;inset:0;display:none;place-items:center;align-content:center;color:var(--ink-faint);font-family:var(--mono);font-size:10px;text-align:center;padding:16px;flex-direction:column;gap:6px}
+  .shot.broken .thumb img{display:none}
+  .shot.broken .thumb .miss{display:grid}
+  .shot .thumb::after{content:"\2922";position:absolute;top:10px;right:12px;width:26px;height:26px;display:grid;place-items:center;border-radius:7px;background:rgba(6,9,18,.7);color:var(--blue-bright);font-size:14px;opacity:0;transition:.2s;border:1px solid var(--line)}
+  .shot:hover .thumb::after{opacity:1}
+  .shot .cap{padding:14px 16px}
+  .shot.hero .cap{padding:26px 30px;align-self:center;flex:1}
+  .shot .cap .ce{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--blue);text-transform:uppercase}
+  .shot .cap .ct{font-family:var(--display);font-weight:600;font-size:14px;color:#fff;margin-top:5px}
+  .shot.hero .cap .ct{font-size:21px}
+  .shot .cap .cd{font-size:12px;color:var(--ink-dim);margin-top:5px;line-height:1.5}
+  .shot.hero .cap .cd{font-size:13.5px;max-width:360px}
+
+  /* lightbox */
+  .lightbox{position:fixed;inset:0;z-index:80;background:rgba(3,6,14,.93);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:46px}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:92vw;max-height:80vh;border-radius:12px;border:1px solid var(--line);box-shadow:0 30px 90px rgba(0,0,0,.7)}
+  .lb-cap{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink);text-transform:uppercase;text-align:center;max-width:80vw}
+  .lb-close{position:absolute;top:22px;right:26px;width:46px;height:46px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:.2s}
+  .lb-close:hover{border-color:rgba(77,141,255,.45);color:#fff}
+  .lb-close svg{width:18px;height:18px}
+  @media (max-width:1100px){.gallery{grid-template-columns:repeat(2,1fr)}.shot.hero{flex-direction:column}.shot.hero .thumb{width:100%}.shot.hero .bar{display:flex}}
+  @media (max-width:620px){.gallery{grid-template-columns:1fr}}
+
   /* ===== responsive ===== */
   @media (max-width:1100px){
     .grid-3{grid-template-columns:1fr 1fr}
@@ -462,7 +498,7 @@
       <div class="page">
         <div class="page-top">
           <div class="eyebrow"><span class="pin"></span> Pendahuluan</div>
-          <div class="pagenum">PAGE <b>01</b> / 08</div>
+          <div class="pagenum">PAGE <b>01</b> / 09</div>
         </div>
         <div class="module-line"><span class="badge">Modul 1</span><span class="sep"><b>&bull;</b> Latar Belakang &amp; Masalah</span></div>
         <div class="head-row">
@@ -505,7 +541,7 @@
       <div class="page">
         <div class="page-top">
           <div class="eyebrow"><span class="pin"></span> Pendahuluan</div>
-          <div class="pagenum">PAGE <b>02</b> / 08</div>
+          <div class="pagenum">PAGE <b>02</b> / 09</div>
         </div>
         <div class="module-line"><span class="badge">Modul 2</span><span class="sep"><b>&bull;</b> Tujuan &amp; Arsitektur Sistem</span></div>
         <div class="head-row">
@@ -548,7 +584,7 @@
       <div class="page">
         <div class="page-top">
           <div class="eyebrow"><span class="pin"></span> Implementasi Teknis</div>
-          <div class="pagenum">PAGE <b>03</b> / 08</div>
+          <div class="pagenum">PAGE <b>03</b> / 09</div>
         </div>
         <div class="module-line"><span class="badge">Modul 3</span><span class="sep"><b>&bull;</b> Tumpukan Teknologi</span></div>
         <h1 class="title">Teknologi yang <span class="ac">Digunakan</span></h1>
@@ -572,7 +608,7 @@
       <div class="page">
         <div class="page-top">
           <div class="eyebrow"><span class="pin"></span> Hasil Pengembangan</div>
-          <div class="pagenum">PAGE <b>04</b> / 08</div>
+          <div class="pagenum">PAGE <b>04</b> / 09</div>
         </div>
         <div class="module-line"><span class="badge">Modul 4</span><span class="sep"><b>&bull;</b> Fitur Inti Sistem</span></div>
         <h1 class="title">Enam Fitur Utama <span class="ac">+ Dashboard</span></h1>
@@ -619,14 +655,78 @@
       </div>
     </section>
 
-    <!-- SLIDE 5 — RBAC & ALUR KERJA (screen 5) -->
+    <!-- SLIDE 5 — TAMPILAN APLIKASI (galeri screenshot) -->
     <section class="screen" data-screen="5">
       <div class="page">
         <div class="page-top">
-          <div class="eyebrow"><span class="pin"></span> Logika Sistem</div>
-          <div class="pagenum">PAGE <b>05</b> / 08</div>
+          <div class="eyebrow"><span class="pin"></span> Demonstrasi Sistem</div>
+          <div class="pagenum">PAGE <b>05</b> / 09</div>
         </div>
-        <div class="module-line"><span class="badge">Modul 5</span><span class="sep"><b>&bull;</b> Hak Akses &amp; Alur Kerja</span></div>
+        <div class="module-line"><span class="badge">Modul 5</span><span class="sep"><b>&bull;</b> Tampilan Aplikasi</span></div>
+        <h1 class="title">Tampilan <span class="ac">Aplikasi</span></h1>
+        <p class="subtitle">Cuplikan antarmuka sistem yang sudah berjalan. Klik gambar mana pun untuk memperbesar saat sesi tanya jawab.</p>
+        <div class="gallery">
+          <div class="shot hero" data-cap="Dashboard Analitik — ringkasan tenaga kerja, status fingerprint, dan demografi">
+            <div class="thumb"><img src="dashboard.png" alt="Dashboard Analitik"><div class="miss"><span>Gambar tidak ditemukan</span><span>dashboard.png</span></div></div>
+            <div class="cap"><div class="ce">Dashboard</div><div class="ct">Dashboard Analitik</div><div class="cd">Total tenaga kerja per departemen/estate, donut status fingerprint, serta demografi usia &amp; provinsi.</div></div>
+          </div>
+          <div class="shot" data-cap="Menu Utama — pusat navigasi seluruh modul sistem">
+            <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="fn">menu-utama.png</span></div>
+            <div class="thumb"><img src="menu-utama.png" alt="Menu Utama"><div class="miss"><span>Tidak ditemukan</span><span>menu-utama.png</span></div></div>
+            <div class="cap"><div class="ce">Navigasi</div><div class="ct">Menu Utama</div><div class="cd">Pusat navigasi seluruh modul sistem.</div></div>
+          </div>
+          <div class="shot" data-cap="Form Registrasi — pendaftaran pekerja kontrak baru">
+            <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="fn">form-registration.png</span></div>
+            <div class="thumb"><img src="form-registration.png" alt="Form Registrasi"><div class="miss"><span>Tidak ditemukan</span><span>form-registration.png</span></div></div>
+            <div class="cap"><div class="ce">Registrasi</div><div class="ct">Form Registrasi</div><div class="cd">Data pribadi, kepegawaian, foto, dan pencarian wilayah bertingkat.</div></div>
+          </div>
+          <div class="shot" data-cap="Database Pegawai — daftar seluruh karyawan & statusnya">
+            <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="fn">database-pegawai.png</span></div>
+            <div class="thumb"><img src="database-pegawai.png" alt="Database Pegawai"><div class="miss"><span>Tidak ditemukan</span><span>database-pegawai.png</span></div></div>
+            <div class="cap"><div class="ce">Data</div><div class="ct">Database Pegawai</div><div class="cd">Daftar karyawan beserta status dan ID otomatis.</div></div>
+          </div>
+          <div class="shot" data-cap="Persetujuan — antrian pekerja Pending untuk diverifikasi">
+            <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="fn">approval-pending.png</span></div>
+            <div class="thumb"><img src="approval-pending.png" alt="Persetujuan"><div class="miss"><span>Tidak ditemukan</span><span>approval-pending.png</span></div></div>
+            <div class="cap"><div class="ce">Approval</div><div class="ct">Persetujuan</div><div class="cd">Antrian pekerja Pending untuk diverifikasi &amp; di-approve massal.</div></div>
+          </div>
+          <div class="shot" data-cap="Input Klaim Transport — CLAIM_IN / CLAIM_OUT dengan validasi otomatis">
+            <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="fn">input-claim.png</span></div>
+            <div class="thumb"><img src="input-claim.png" alt="Input Klaim"><div class="miss"><span>Tidak ditemukan</span><span>input-claim.png</span></div></div>
+            <div class="cap"><div class="ce">Klaim</div><div class="ct">Input Klaim Transport</div><div class="cd">Proses CLAIM_IN / CLAIM_OUT dengan validasi kelayakan otomatis.</div></div>
+          </div>
+          <div class="shot" data-cap="Surat Izin Keluar — penerbitan surat jalan bernomor otomatis">
+            <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="fn">input-permit.png</span></div>
+            <div class="thumb"><img src="input-permit.png" alt="Surat Izin Keluar"><div class="miss"><span>Tidak ditemukan</span><span>input-permit.png</span></div></div>
+            <div class="cap"><div class="ce">Permit</div><div class="ct">Surat Izin Keluar</div><div class="cd">Penerbitan surat jalan dengan nomor referensi otomatis.</div></div>
+          </div>
+          <div class="shot" data-cap="Manajemen Tarif — master tarif per departemen + provinsi">
+            <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="fn">manage-rates.png</span></div>
+            <div class="thumb"><img src="manage-rates.png" alt="Manajemen Tarif"><div class="miss"><span>Tidak ditemukan</span><span>manage-rates.png</span></div></div>
+            <div class="cap"><div class="ce">Tarif</div><div class="ct">Manajemen Tarif</div><div class="cd">Master tarif per departemen + provinsi dengan arsip otomatis.</div></div>
+          </div>
+          <div class="shot" data-cap="Manajemen Pengguna — akun & hak akses granular per menu (RBAC)">
+            <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="fn">user-management.png</span></div>
+            <div class="thumb"><img src="user-management.png" alt="Manajemen Pengguna"><div class="miss"><span>Tidak ditemukan</span><span>user-management.png</span></div></div>
+            <div class="cap"><div class="ce">RBAC</div><div class="ct">Manajemen Pengguna</div><div class="cd">Pengelolaan akun &amp; hak akses granular per menu.</div></div>
+          </div>
+          <div class="shot" data-cap="Tambah Pengguna — form akun baru beserta pemberian izin menu">
+            <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="fn">Add_User.png</span></div>
+            <div class="thumb"><img src="Add_User.png" alt="Tambah Pengguna"><div class="miss"><span>Tidak ditemukan</span><span>Add_User.png</span></div></div>
+            <div class="cap"><div class="ce">RBAC</div><div class="ct">Tambah Pengguna</div><div class="cd">Form pembuatan akun baru beserta pemberian izin menu.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6 — RBAC & ALUR KERJA (screen 6) -->
+    <section class="screen" data-screen="6">
+      <div class="page">
+        <div class="page-top">
+          <div class="eyebrow"><span class="pin"></span> Logika Sistem</div>
+          <div class="pagenum">PAGE <b>06</b> / 09</div>
+        </div>
+        <div class="module-line"><span class="badge">Modul 6</span><span class="sep"><b>&bull;</b> Hak Akses &amp; Alur Kerja</span></div>
         <h1 class="title">Model Hak Akses &amp; <span class="ac">Alur Kerja</span></h1>
         <p class="subtitle">Dua tingkat akses yang fleksibel, plus tiga alur operasional inti sistem.</p>
 
@@ -685,9 +785,9 @@
       <div class="page">
         <div class="page-top">
           <div class="eyebrow"><span class="pin"></span> Nilai Teknis</div>
-          <div class="pagenum">PAGE <b>06</b> / 08</div>
+          <div class="pagenum">PAGE <b>07</b> / 09</div>
         </div>
-        <div class="module-line"><span class="badge">Modul 6</span><span class="sep"><b>&bull;</b> Sorotan Teknis</span></div>
+        <div class="module-line"><span class="badge">Modul 7</span><span class="sep"><b>&bull;</b> Sorotan Teknis</span></div>
         <h1 class="title">Sorotan Teknis &amp; <span class="ac">Keputusan Desain</span></h1>
         <p class="subtitle">Detail rekayasa yang membedakan sistem ini — dari anti-kecurangan hingga migrasi data.</p>
         <div class="grid-2" style="margin-top:24px">
@@ -706,9 +806,9 @@
       <div class="page">
         <div class="page-top">
           <div class="eyebrow"><span class="pin"></span> Evaluasi</div>
-          <div class="pagenum">PAGE <b>07</b> / 08</div>
+          <div class="pagenum">PAGE <b>08</b> / 09</div>
         </div>
-        <div class="module-line"><span class="badge">Modul 7</span><span class="sep"><b>&bull;</b> Kendala &amp; Solusi</span></div>
+        <div class="module-line"><span class="badge">Modul 8</span><span class="sep"><b>&bull;</b> Kendala &amp; Solusi</span></div>
         <h1 class="title">Kendala &amp; <span class="ac">Solusi</span> yang Ditemukan</h1>
         <p class="subtitle">Rintangan nyata selama pengembangan beserta strategi penyelesaiannya.</p>
         <div class="grid-2" style="margin-top:26px">
@@ -733,9 +833,9 @@
       <div class="page">
         <div class="page-top">
           <div class="eyebrow"><span class="pin"></span> Penutup</div>
-          <div class="pagenum">PAGE <b>08</b> / 08</div>
+          <div class="pagenum">PAGE <b>09</b> / 09</div>
         </div>
-        <div class="module-line"><span class="badge">Modul 8</span><span class="sep"><b>&bull;</b> Simpulan &amp; Saran</span></div>
+        <div class="module-line"><span class="badge">Modul 9</span><span class="sep"><b>&bull;</b> Simpulan &amp; Saran</span></div>
         <h1 class="title">Simpulan &amp; <span class="ac">Saran Pengembangan</span></h1>
         <div class="statement" style="margin-top:24px">
           <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
@@ -779,6 +879,13 @@
     <button class="ctrl next" id="nextBtn" aria-label="Berikutnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
   </div>
 </div>
+
+  <!-- LIGHTBOX (zoom screenshot) -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lbClose" aria-label="Tutup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <img id="lbImg" src="" alt="Pratinjau">
+    <div class="lb-cap" id="lbCap"></div>
+  </div>
 
 <script>
 /* =========================================================
@@ -832,7 +939,7 @@ document.getElementById("pf-avatar").textContent=initials(CONFIG.student);
 // roadmap items
 const SECTIONS=[
   "Latar Belakang Masalah","Tujuan & Arsitektur Sistem","Teknologi yang Digunakan",
-  "Fitur Utama Sistem","Hak Akses & Alur Kerja","Sorotan Teknis","Kendala & Solusi","Simpulan & Saran"
+  "Fitur Utama Sistem","Tampilan Aplikasi","Hak Akses & Alur Kerja","Sorotan Teknis","Kendala & Solusi","Simpulan & Saran"
 ];
 const roadmap=document.getElementById("roadmap");
 SECTIONS.forEach((label,i)=>{
@@ -842,6 +949,23 @@ SECTIONS.forEach((label,i)=>{
   el.addEventListener("click",()=>{go(i+1);closeDrawer();});
   roadmap.appendChild(el);
 });
+
+// ---- screenshot gallery + lightbox ----
+(function(){
+  const lb=document.getElementById("lightbox"),lbImg=document.getElementById("lbImg"),lbCap=document.getElementById("lbCap");
+  function closeLb(){lb.classList.remove("open");lbImg.removeAttribute("src");}
+  document.querySelectorAll(".shot").forEach(s=>{
+    const img=s.querySelector("img");
+    img.addEventListener("error",()=>s.classList.add("broken"));
+    if(img.complete&&img.naturalWidth===0)s.classList.add("broken");
+    s.addEventListener("click",()=>{
+      if(s.classList.contains("broken"))return;
+      lbImg.src=img.src;lbCap.textContent=s.dataset.cap||"";lb.classList.add("open");
+    });
+  });
+  lb.addEventListener("click",closeLb);
+  document.getElementById("lbClose").addEventListener("click",e=>{e.stopPropagation();closeLb();});
+})();
 
 const screens=[...document.querySelectorAll(".screen")];
 const navItems=[...document.querySelectorAll(".nav-item")];
@@ -862,13 +986,13 @@ function go(n){
   navItems.forEach((it,idx)=>{
     const sec=idx+1;
     it.classList.toggle("active",sec===current);
-    it.classList.toggle("done",sec<current && current<=8);
+    it.classList.toggle("done",sec<current && current<=SECTIONS.length);
   });
   // beam fill (between section 1..8)
-  if(current>=1&&current<=8){
+  if(current>=1&&current<=SECTIONS.length){
     const frac=(current-1)/(SECTIONS.length-1);
     beamFill.style.height="calc("+(frac*100)+"% - 0px)";
-  }else if(current>8){beamFill.style.height="100%";}
+  }else if(current>SECTIONS.length){beamFill.style.height="100%";}
   else{beamFill.style.height="0%";}
   // controls
   document.getElementById("prevBtn").disabled=(current<=1);
@@ -884,10 +1008,12 @@ document.getElementById("prevBtn").addEventListener("click",()=>go(current-1));
 
 // keyboard
 document.addEventListener("keydown",e=>{
+  const _lb=document.getElementById("lightbox");
+  if(_lb&&_lb.classList.contains("open")){if(e.key==="Escape"){_lb.classList.remove("open");_lb.querySelector("img").removeAttribute("src");}return;}
   if(e.key==="ArrowRight"||e.key==="PageDown"){e.preventDefault();go(current+1);}
   else if(e.key==="ArrowLeft"||e.key==="PageUp"){e.preventDefault();go(current-1);}
   else if(e.key===" "&&current!==LAST){e.preventDefault();go(current+1);}
-  else if(e.key==="Home"){go(0);} else if(e.key==="End"){go(8);}
+  else if(e.key==="Home"){go(0);} else if(e.key==="End"){go(SECTIONS.length);}
 });
 
 // mobile drawer
