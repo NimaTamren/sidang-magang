@@ -313,6 +313,25 @@
   body[data-mode="full"] .stage{left:0}
   body[data-mode="full"] .controls{display:none}
 
+  /* ===== uraian pelaksanaan / carousel ===== */
+  .subbar{display:flex;align-items:center;justify-content:space-between;gap:16px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(160deg,var(--card),rgba(11,19,34,.5));padding:12px 14px;margin:24px 0 18px}
+  .subbtn{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 15px;cursor:pointer;transition:.2s;white-space:nowrap}
+  .subbtn:hover:not(:disabled){color:#fff;border-color:rgba(77,141,255,.45);box-shadow:0 0 0 3px rgba(77,141,255,.08)}
+  .subbtn:disabled{opacity:.32;cursor:not-allowed}
+  .subbtn svg{width:14px;height:14px}
+  .subbar .center{text-align:center;flex:1;min-width:0;padding:0 8px}
+  .subbar .center .se{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;color:var(--blue);text-transform:uppercase}
+  .subbar .center .st{font-family:var(--display);font-weight:600;font-size:16px;color:#fff;margin-top:3px;line-height:1.2}
+  .subbab{display:none}
+  .subbab.show{display:block;animation:subin .35s ease}
+  @keyframes subin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .subgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:start}
+  .code{font-family:var(--mono);font-size:11.5px;line-height:1.7;color:#cdd9f2;background:#070c18;border:1px solid var(--line);border-left:2px solid var(--blue);border-radius:12px;padding:15px 16px;overflow-x:auto;margin-top:14px;white-space:pre}
+  .code .cm{color:var(--ink-faint)}
+  .code-tag{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;color:var(--blue-bright);text-transform:uppercase;background:rgba(77,141,255,.1);border:1px solid rgba(77,141,255,.2);padding:2px 7px;border-radius:5px}
+  @media (max-width:1100px){.subgrid{grid-template-columns:1fr}}
+  @media (max-width:620px){.subbar{flex-wrap:wrap}.subbar .center{order:-1;flex-basis:100%}.subbtn{flex:1;justify-content:center}}
+
   /* ===== gallery / screenshots ===== */
   .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
   .shot{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);cursor:pointer;transition:.25s;display:flex;flex-direction:column}
@@ -436,8 +455,8 @@
             </div>
           </div>
           <div class="cover-prog" id="cv-program">Program Magang &middot; <span id="cv-univ">Universitas Anda</span></div>
-          <h1 class="cover-title">Pengembangan <span class="ac">Sistem Manajemen Tenaga Kerja</span> Kontrak Berbasis Web</h1>
-          <p class="cover-sub" id="cv-sub">Migrasi dari aplikasi <span class="kw">Microsoft Access</span> menuju aplikasi web Laravel 12 dengan otomatisasi penomoran, kontrol kualitas data, audit trail, dan kontrol akses berbasis Gate.</p>
+          <h1 class="cover-title">Rancang Bangun Website <span class="ac">HR Safety Campus</span></h1>
+          <p class="cover-sub" id="cv-sub">Sistem Digital Administrasi Tenaga Kerja Kontrak Berbasis <span class="kw">Laravel</span> — migrasi dari Microsoft Access ke aplikasi web dengan RBAC, audit trail, dan validasi berlapis.</p>
           <div class="cover-foot" id="cv-foot">Fakultas Teknik dan Informatika &middot; 2026</div>
         </div>
         <div class="cover-right">
@@ -603,54 +622,175 @@
       </div>
     </section>
 
-    <!-- SLIDE 4 — FITUR UTAMA (screen 4) -->
+    <!-- SLIDE 4 — URAIAN PELAKSANAAN (carousel sub-bab) -->
     <section class="screen" data-screen="4">
       <div class="page">
         <div class="page-top">
-          <div class="eyebrow"><span class="pin"></span> Hasil Pengembangan</div>
+          <div class="eyebrow"><span class="pin"></span> Pelaksanaan Kerja Magang</div>
           <div class="pagenum">PAGE <b>04</b> / 09</div>
         </div>
-        <div class="module-line"><span class="badge">Modul 4</span><span class="sep"><b>&bull;</b> Fitur Inti Sistem</span></div>
-        <h1 class="title">Enam Fitur Utama <span class="ac">+ Dashboard</span></h1>
-        <p class="subtitle">Mencakup seluruh siklus tenaga kerja kontrak — dari pendaftaran hingga analitik.</p>
-        <div class="grid-3" style="margin-top:26px">
-          <div class="feat">
-            <div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div>
-            <div class="ft">Registrasi <span class="tag">A</span></div>
-            <p>Pendaftaran pekerja kontrak dengan ID otomatis <span class="kw">YYYYXXXX</span>, status otomatis, dan fitur <b>Re-Hire</b> untuk memulihkan data terhapus.</p>
+        <div class="module-line"><span class="badge">Modul 4</span><span class="sep"><b>&bull;</b> Uraian Pelaksanaan Kerja Magang</span></div>
+        <div class="head-row">
+          <div>
+            <h1 class="title">Uraian <span class="ac">Pelaksanaan</span> Kerja Magang</h1>
+            <p class="subtitle">Enam fitur inti HR Safety Campus beserta logika utamanya. Gunakan tombol Sebelumnya / Berikutnya untuk menelusuri tiap fitur tanpa berpindah halaman.</p>
           </div>
-          <div class="feat">
-            <div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-            <div class="ft">Persetujuan <span class="tag">B</span></div>
-            <p>Pekerja <b>Pending</b> dievaluasi kelengkapannya secara otomatis; hanya data lengkap yang bisa di-approve massal, dengan histori.</p>
-          </div>
-          <div class="feat">
-            <div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-            <div class="ft">Klaim Transport <span class="tag">C</span></div>
-            <p>Penggantian biaya dengan dua jenis <span class="kw">CLAIM_IN</span> &amp; <span class="kw">CLAIM_OUT</span>; nominal dihitung otomatis dari departemen + wilayah asal.</p>
-          </div>
-          <div class="feat">
-            <div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg></div>
-            <div class="ft">Surat Izin Keluar <span class="tag">D</span></div>
-            <p>Surat jalan dengan nomor referensi otomatis &amp; cetak <b>A4 landscape</b>. Jenis "Keluar Selamanya" mengubah status pekerja jadi Non-Aktif.</p>
-          </div>
-          <div class="feat">
-            <div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg></div>
-            <div class="ft">Manajemen Tarif <span class="tag">E</span></div>
-            <p>Master tarif per departemen + provinsi, dengan <b>pengarsipan otomatis</b> tiap pembaruan dan unggah PDF surat pengesahan.</p>
-          </div>
-          <div class="feat">
-            <div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></div>
-            <div class="ft">Manajemen Pengguna <span class="tag">F</span></div>
-            <p>Pengelolaan akun dengan <b>hak akses granular per menu</b> (RBAC), menerapkan prinsip <i>least privilege</i>.</p>
+          <div class="chips"><div class="chip"><div class="k">Fitur Inti</div><div class="v b">6</div></div></div>
+        </div>
+
+        <div class="subbar">
+          <button class="subbtn" id="subPrev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg> Sebelumnya</button>
+          <div class="center"><div class="se" id="subEy">Sub-Bab 3.3.1 &middot; Fitur 1 / 6</div><div class="st" id="subTitle">Registrasi Tenaga Kerja</div></div>
+          <button class="subbtn" id="subNext">Berikutnya <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+        </div>
+
+        <div class="subwrap">
+        <div class="subbab show" data-sub="0">
+          <div class="subgrid">
+            <div>
+              <div class="card glow" style="padding:20px">
+                <div class="card-h"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div><div><div class="t">Registrasi Tenaga Kerja</div><div class="s">Employee Registration</div></div></div>
+                <p>Pondasi sistem. Staf HR mendaftarkan pekerja kontrak: data pribadi, kepegawaian, dan foto. ID dibuat otomatis (format <span class="kw">YYYYXXXX</span>), status ditentukan otomatis, dilengkapi pencarian wilayah <span class="kw">IndoRegion</span>, fitur <b>Re-Hire</b>, dan cetak ID Card PDF (FPDF).</p>
+              </div>
+              <pre class="code"><span class="code-tag">PHP &middot; Laravel</span>
+<span class="cm">// ID = tahun + 4 digit, dari max(no_id) — bukan count()</span>
+$last = Employee::where('no_id','like',$year.'%')
+    ->orderBy('no_id','desc')->first();
+$seq  = $last ? ((int) substr($last->no_id,4)) + 1 : 1;
+$data['no_id'] = $year.str_pad($seq,4,'0',STR_PAD_LEFT);
+
+<span class="cm">// Status otomatis: Aktif jika lengkap, Pending jika belum</span>
+$emp->status = $emp->isComplete() ? 'Aktif' : 'Pending';</pre>
+            </div>
+        <div class="shot" data-cap="Form Registrasi — form-registration.png">
+          <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="fn">form-registration.png</span></div>
+          <div class="thumb"><img src="form-registration.png" alt="Form Registrasi"><div class="miss"><span>Tidak ditemukan</span><span>form-registration.png</span></div></div>
+          <div class="cap"><div class="ce">Fitur 1</div><div class="ct">Form Registrasi</div></div>
+        </div>
           </div>
         </div>
-        <div class="feat" style="margin-top:16px;background:linear-gradient(120deg,rgba(77,141,255,.1),rgba(11,19,34,.5))">
-          <div style="display:flex;align-items:center;gap:14px">
-            <div class="fic" style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10H12z"/></svg></div>
-            <div><div class="ft" style="margin:0">Dashboard Analitik <span class="tag">G</span></div>
-            <p style="margin-top:4px">Ringkasan visual: total tenaga kerja per departemen/estate, status fingerprint (donut <span class="kw">Chart.js</span>), serta demografi usia dan provinsi.</p></div>
+        <div class="subbab" data-sub="1">
+          <div class="subgrid">
+            <div>
+              <div class="card glow" style="padding:20px">
+                <div class="card-h"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div><div class="t">Klaim Transport</div><div class="s">Transport Claim</div></div></div>
+                <p>Mengelola penggantian biaya transportasi: <span class="kw">CLAIM_IN</span> (≥60 hari, maks 1×/tahun) dan <span class="kw">CLAIM_OUT</span> (≥90 hari, wajib sudah CLAIM_IN, bukan Plantation). Nominal dihitung otomatis dari kombinasi departemen + provinsi asal.</p>
+              </div>
+              <pre class="code"><span class="code-tag">PHP &middot; Validasi Berlapis</span>
+<span class="cm">// CLAIM_IN: min 60 hari kerja, maks 1x / tahun</span>
+if ($days &lt; 60) {
+    $eligibleIn = false; $msg = "Baru {$days} hari (min. 60)";
+}
+<span class="cm">// CLAIM_OUT: min 90 hari, wajib sudah CLAIM_IN,</span>
+<span class="cm">// dan bukan departemen Plantation</span>
+if (stripos($emp->department,'Plantation') !== false) {
+    continue; <span class="cm">// kunci karyawan Plantation</span>
+}</pre>
+            </div>
+        <div class="shot" data-cap="Input Klaim — input-claim.png">
+          <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="fn">input-claim.png</span></div>
+          <div class="thumb"><img src="input-claim.png" alt="Input Klaim"><div class="miss"><span>Tidak ditemukan</span><span>input-claim.png</span></div></div>
+          <div class="cap"><div class="ce">Fitur 2</div><div class="ct">Input Klaim</div></div>
+        </div>
           </div>
+        </div>
+        <div class="subbab" data-sub="2">
+          <div class="subgrid">
+            <div>
+              <div class="card glow" style="padding:20px">
+                <div class="card-h"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg></div><div><div class="t">Surat Izin Keluar</div><div class="s">Exit Permits</div></div></div>
+                <p>Menerbitkan surat jalan dengan nomor referensi unik otomatis (mis. <span class="kw">0001/MMJ/PERMIT/VI/2025</span>) dan cetak A4 landscape. Jika jenisnya "Keluar Selamanya", status pekerja otomatis menjadi <b>Non-Aktif</b>.</p>
+              </div>
+              <pre class="code"><span class="code-tag">PHP &middot; Penomoran Surat</span>
+<span class="cm">// Format: urutan/inisial/PERMIT/bulan-romawi/tahun</span>
+$ref = sprintf('%04d/%s/PERMIT/%s/%s',
+    $newNumber, $initial, $romawi, $year);
+
+<span class="cm">// "Keluar Selamanya" → status jadi Non-Aktif</span>
+if ($request->type == 'Keluar Selamanya') {
+    $employee->update(['status' => 'Non-Aktif']);
+}</pre>
+            </div>
+        <div class="shot" data-cap="Surat Izin Keluar — input-permit.png">
+          <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="fn">input-permit.png</span></div>
+          <div class="thumb"><img src="input-permit.png" alt="Surat Izin Keluar"><div class="miss"><span>Tidak ditemukan</span><span>input-permit.png</span></div></div>
+          <div class="cap"><div class="ce">Fitur 3</div><div class="ct">Surat Izin Keluar</div></div>
+        </div>
+          </div>
+        </div>
+        <div class="subbab" data-sub="3">
+          <div class="subgrid">
+            <div>
+              <div class="card glow" style="padding:20px">
+                <div class="card-h"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg></div><div><div class="t">Manajemen Tarif Transport</div><div class="s">Manage Rates</div></div></div>
+                <p>Master tarif per departemen (Harvesting/Plantation) + provinsi. Setiap pembaruan diarsipkan otomatis dalam satu <span class="kw">DB::transaction</span> (audit-friendly), dengan unggah PDF surat pengesahan resmi.</p>
+              </div>
+              <pre class="code"><span class="code-tag">PHP &middot; DB::transaction</span>
+<span class="cm">// Pembaruan tarif dibungkus transaksi (atomik)</span>
+DB::transaction(function () use ($activePeriod) {
+    <span class="cm">// 1. Arsipkan periode tarif lama untuk audit</span>
+    $archive = RatePeriod::create([ ... ]);
+    <span class="cm">// 2. Salin seluruh tarif lama ke arsip</span>
+    foreach ($activePeriod->rates as $old) { ... }
+    <span class="cm">// 3. Perbarui tarif aktif dengan input baru</span>
+});</pre>
+            </div>
+        <div class="shot" data-cap="Manajemen Tarif — manage-rates.png">
+          <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="fn">manage-rates.png</span></div>
+          <div class="thumb"><img src="manage-rates.png" alt="Manajemen Tarif"><div class="miss"><span>Tidak ditemukan</span><span>manage-rates.png</span></div></div>
+          <div class="cap"><div class="ce">Fitur 4</div><div class="ct">Manajemen Tarif</div></div>
+        </div>
+          </div>
+        </div>
+        <div class="subbab" data-sub="4">
+          <div class="subgrid">
+            <div>
+              <div class="card glow" style="padding:20px">
+                <div class="card-h"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div><div class="t">Persetujuan Karyawan</div><div class="s">Employees Approval</div></div></div>
+                <p>Lapisan kontrol kualitas: pekerja <b>Pending</b> dievaluasi otomatis lewat <span class="kw">isComplete()</span> (17 field wajib). Hanya data lengkap yang bisa di-approve massal; setiap perubahan tercatat di histori untuk audit trail.</p>
+              </div>
+              <pre class="code"><span class="code-tag">PHP &middot; isComplete()</span>
+<span class="cm">// 17 field wajib dicek sebelum bisa di-approve</span>
+public function isComplete() {
+    foreach ($this->required as $field) {
+        if (empty($this->$field)) return false;
+    }
+    return true;
+}
+<span class="cm">// Approval massal memvalidasi ulang kelengkapan</span>
+if ($emp->isComplete()) { $emp->status = 'Aktif'; }</pre>
+            </div>
+        <div class="shot" data-cap="Persetujuan — approval-pending.png">
+          <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="fn">approval-pending.png</span></div>
+          <div class="thumb"><img src="approval-pending.png" alt="Persetujuan"><div class="miss"><span>Tidak ditemukan</span><span>approval-pending.png</span></div></div>
+          <div class="cap"><div class="ce">Fitur 5</div><div class="ct">Persetujuan</div></div>
+        </div>
+          </div>
+        </div>
+        <div class="subbab" data-sub="5">
+          <div class="subgrid">
+            <div>
+              <div class="card glow" style="padding:20px">
+                <div class="card-h"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="t">Manajemen Pengguna (RBAC)</div><div class="s">User Management</div></div></div>
+                <p>Dua tingkat akses: <b>Administrator</b> (lolos semua via <span class="kw">Gate::before</span>) dan <b>User biasa</b> dengan izin granular per menu (least privilege), dirender di Blade lewat <span class="kw">@can()</span>.</p>
+              </div>
+              <pre class="code"><span class="code-tag">PHP &middot; Gate RBAC</span>
+<span class="cm">// Admin: lolos semua gerbang lebih dulu</span>
+Gate::before(fn($user) =>
+    ($user->email === 'adminhrsc@gmail.com' || $user->is_admin)
+        ? true : null);
+
+<span class="cm">// User biasa: izin per menu (least privilege)</span>
+Gate::define('access-claim', fn($user) =>
+    ($user->permissions['claim'] ?? '') === 'full');</pre>
+            </div>
+        <div class="shot" data-cap="Manajemen Pengguna — user-management.png">
+          <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="fn">user-management.png</span></div>
+          <div class="thumb"><img src="user-management.png" alt="Manajemen Pengguna"><div class="miss"><span>Tidak ditemukan</span><span>user-management.png</span></div></div>
+          <div class="cap"><div class="ce">Fitur 6</div><div class="ct">Manajemen Pengguna</div></div>
+        </div>
+          </div>
+        </div>
         </div>
       </div>
     </section>
@@ -892,29 +1032,29 @@
    EDIT IDENTITAS DI SINI  →  ganti nilai di bawah ini saja.
    ========================================================= */
 const CONFIG = {
-  brand:      "SIMTK",                                   // nama singkat / kode sistem
-  org:        "Laporan Kerja Magang",                    // label kecil di bawah brand
-  university: "Universitas Anda",                         // nama universitas
+  brand:      "HR Safety Campus",                                   // nama singkat / kode sistem
+  org:        "Laporan Career Acceleration Program",                    // label kecil di bawah brand
+  university: "Universitas Multimedia Nusantara",                         // nama universitas
   faculty:    "Fakultas Teknik dan Informatika · 2026",  // footer cover
 
-  student:    "Nama Lengkap Anda",
-  nim:        "000000000",
+  student:    "Nima Tamren",
+  nim:        "00000092648",
   prodi:      "Informatika 2023",
   angkatan:   "Informatika '23",
 
-  advisor:    "Nama Dosen Pembimbing",
-  facultyTag: "FTI",
+  advisor:    "Ajie Kusuma Wardhana, S.Kom., M.Eng.",
+  facultyTag: "FTI UMN",
 
   role:       "Full-Stack Developer Intern",
-  division:   "Divisi Engineering / IT",
+  division:   "IT Application Development",
 
-  company:    "PT Nama Perusahaan",
-  location:   "Kota, Provinsi",
-  period:     "Tgl – Tgl",
-  semester:   "Semester Genap 25/26",
+  company:    "PT Pratama Nusantara Sakti",
+  location:   "Sumatera Selatan",
+  period:     "05 Jan – 20 Mei 2026",
+  semester:   "Semester Genap 2025/2026",
 
-  supervisor:     "Nama Supervisor",
-  supervisorRole: "Senior Engineer"
+  supervisor:     "Tama Priambodo",
+  supervisorRole: "IT Superintendent"
 };
 /* ========================================================= */
 
@@ -939,7 +1079,7 @@ document.getElementById("pf-avatar").textContent=initials(CONFIG.student);
 // roadmap items
 const SECTIONS=[
   "Latar Belakang Masalah","Tujuan & Arsitektur Sistem","Teknologi yang Digunakan",
-  "Fitur Utama Sistem","Tampilan Aplikasi","Hak Akses & Alur Kerja","Sorotan Teknis","Kendala & Solusi","Simpulan & Saran"
+  "Uraian Pelaksanaan Magang","Tampilan Aplikasi","Hak Akses & Alur Kerja","Sorotan Teknis","Kendala & Solusi","Simpulan & Saran"
 ];
 const roadmap=document.getElementById("roadmap");
 SECTIONS.forEach((label,i)=>{
@@ -965,6 +1105,31 @@ SECTIONS.forEach((label,i)=>{
   });
   lb.addEventListener("click",closeLb);
   document.getElementById("lbClose").addEventListener("click",e=>{e.stopPropagation();closeLb();});
+})();
+
+// ---- carousel sub-bab Uraian Pelaksanaan ----
+(function(){
+  const subs=[...document.querySelectorAll(".subbab")];
+  if(!subs.length)return;
+  const meta=[
+    ["Sub-Bab 3.3.1 \u00b7 Fitur 1 / 6","Registrasi Tenaga Kerja"],
+    ["Sub-Bab 3.3.2 \u00b7 Fitur 2 / 6","Klaim Transport"],
+    ["Sub-Bab 3.3.3 \u00b7 Fitur 3 / 6","Surat Izin Keluar"],
+    ["Sub-Bab 3.3.4 \u00b7 Fitur 4 / 6","Manajemen Tarif Transport"],
+    ["Sub-Bab 3.3.5 \u00b7 Fitur 5 / 6","Persetujuan Karyawan"],
+    ["Sub-Bab 3.3.6 \u00b7 Fitur 6 / 6","Manajemen Pengguna (RBAC)"]
+  ];
+  let i=0;
+  const prev=document.getElementById("subPrev"),next=document.getElementById("subNext");
+  const ey=document.getElementById("subEy"),tt=document.getElementById("subTitle");
+  function render(){
+    subs.forEach((el,idx)=>el.classList.toggle("show",idx===i));
+    if(meta[i]){ey.textContent=meta[i][0];tt.textContent=meta[i][1];}
+    prev.disabled=(i===0); next.disabled=(i===subs.length-1);
+  }
+  prev.addEventListener("click",()=>{if(i>0){i--;render();}});
+  next.addEventListener("click",()=>{if(i<subs.length-1){i++;render();}});
+  render();
 })();
 
 const screens=[...document.querySelectorAll(".screen")];
