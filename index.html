@@ -2534,7 +2534,7 @@
           </div>
         </section>
 
-        <!-- SLIDE 3 — SEJARAH & PROFIL PERUSAHAAN (screen 3) -->
+        <!-- SLIDE 3 — PROFIL PERUSAHAAN (screen 3) -->
         <section class="screen" data-screen="3">
           <div class="page">
             <div class="page-top">
@@ -2573,36 +2573,40 @@
               </div>
             </div>
 
-            <div class="grid-2" style="margin-top: 26px; gap: 18px">
-              <!-- Kiri: Visi & Misi saja -->
-              <div class="card" style="border-left: 2px solid var(--cyan)">
-                <div class="card-h">
-                  <div
-                    class="ic"
-                    style="
-                      color: var(--cyan);
-                      background: rgba(70, 200, 232, 0.08);
-                      border-color: rgba(70, 200, 232, 0.22);
-                    "
+            <!-- BARIS 1: Visi & Misi — full width -->
+            <div
+              class="card"
+              style="border-left: 2px solid var(--cyan); margin-top: 22px"
+            >
+              <div class="card-h">
+                <div
+                  class="ic"
+                  style="
+                    color: var(--cyan);
+                    background: rgba(70, 200, 232, 0.08);
+                    border-color: rgba(70, 200, 232, 0.22);
+                  "
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
                   >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <circle cx="12" cy="12" r="9" />
-                      <circle cx="12" cy="12" r="4" />
-                      <circle cx="12" cy="12" r="1" fill="currentColor" />
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="t">Visi &amp; Misi</div>
-                    <div class="s">Vision &amp; Mission</div>
-                  </div>
+                    <circle cx="12" cy="12" r="9" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="12" cy="12" r="1" fill="currentColor" />
+                  </svg>
                 </div>
-
-                <div style="margin-bottom: 20px">
+                <div>
+                  <div class="t">Visi &amp; Misi</div>
+                  <div class="s">Vision &amp; Mission</div>
+                </div>
+              </div>
+              <div
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px"
+              >
+                <div>
                   <div
                     style="
                       font-family: var(--mono);
@@ -2621,13 +2625,7 @@
                     nasional.
                   </p>
                 </div>
-
-                <div
-                  style="
-                    border-top: 1px solid var(--line-soft);
-                    padding-top: 16px;
-                  "
-                >
+                <div>
                   <div
                     style="
                       font-family: var(--mono);
@@ -2642,22 +2640,22 @@
                   </div>
                   <div class="flow">
                     <div class="step">
-                      <span class="n">1</span>
-                      <span class="tx"
+                      <span class="n">1</span
+                      ><span class="tx"
                         >Mengelola sumber daya manusia dan lahan secara
                         profesional dan bertanggung jawab.</span
                       >
                     </div>
                     <div class="step">
-                      <span class="n">2</span>
-                      <span class="tx"
+                      <span class="n">2</span
+                      ><span class="tx"
                         >Menerapkan teknologi tepat guna untuk meningkatkan
                         efisiensi operasional.</span
                       >
                     </div>
                     <div class="step">
-                      <span class="n">3</span>
-                      <span class="tx"
+                      <span class="n">3</span
+                      ><span class="tx"
                         >Menciptakan nilai tambah bagi seluruh pemangku
                         kepentingan secara berkelanjutan.</span
                       >
@@ -2665,393 +2663,375 @@
                   </div>
                 </div>
               </div>
+            </div>
 
-              <!-- Kanan: Struktur Organisasi — diperbaiki dengan SVG lines yang presisi -->
-              <div class="card glow" style="padding: 22px">
-                <div class="card-h">
-                  <div class="ic">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <rect x="8" y="2" width="8" height="5" rx="1" />
-                      <rect x="1" y="15" width="6" height="5" rx="1" />
-                      <rect x="9" y="15" width="6" height="5" rx="1" />
-                      <rect x="17" y="15" width="6" height="5" rx="1" />
-                      <path d="M4 15v-3h16v3" />
-                      <path d="M12 7v5" />
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="t">Struktur Organisasi</div>
-                    <div class="s">Organization Structure</div>
-                  </div>
-                </div>
-
-                <!-- Bagan org pakai SVG untuk garis yang presisi -->
-                <svg
-                  viewBox="0 0 400 260"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style="
-                    width: 100%;
-                    height: auto;
-                    overflow: visible;
-                    margin-top: 4px;
-                  "
-                >
-                  <!-- Garis vertikal dari Direktur ke rail horizontal -->
-                  <line
-                    x1="200"
-                    y1="44"
-                    x2="200"
-                    y2="76"
-                    stroke="rgba(120,150,210,0.25)"
-                    stroke-width="1.5"
-                  />
-                  <!-- Rail horizontal level 2 -->
-                  <line
-                    x1="66"
-                    y1="76"
-                    x2="334"
-                    y2="76"
-                    stroke="rgba(120,150,210,0.25)"
-                    stroke-width="1.5"
-                  />
-                  <!-- Garis turun ke 3 kotak level 2 -->
-                  <line
-                    x1="66"
-                    y1="76"
-                    x2="66"
-                    y2="92"
-                    stroke="rgba(120,150,210,0.25)"
-                    stroke-width="1.5"
-                  />
-                  <line
-                    x1="200"
-                    y1="76"
-                    x2="200"
-                    y2="92"
-                    stroke="rgba(120,150,210,0.25)"
-                    stroke-width="1.5"
-                  />
-                  <line
-                    x1="334"
-                    y1="76"
-                    x2="334"
-                    y2="92"
-                    stroke="rgba(120,150,210,0.25)"
-                    stroke-width="1.5"
-                  />
-
-                  <!-- Garis dari HR & GA ke rail level 3 -->
-                  <line
-                    x1="200"
-                    y1="126"
-                    x2="200"
-                    y2="150"
-                    stroke="rgba(120,150,210,0.25)"
-                    stroke-width="1.5"
-                  />
-                  <!-- Rail horizontal level 3 -->
-                  <line
-                    x1="148"
-                    y1="150"
-                    x2="252"
-                    y2="150"
-                    stroke="rgba(120,150,210,0.25)"
-                    stroke-width="1.5"
-                  />
-                  <!-- Garis turun ke 2 kotak level 3 -->
-                  <line
-                    x1="148"
-                    y1="150"
-                    x2="148"
-                    y2="164"
-                    stroke="rgba(120,150,210,0.25)"
-                    stroke-width="1.5"
-                  />
-                  <line
-                    x1="252"
-                    y1="150"
-                    x2="252"
-                    y2="164"
-                    stroke="rgba(120,150,210,0.25)"
-                    stroke-width="1.5"
-                  />
-
-                  <!-- BOX: Direktur Utama -->
-                  <rect
-                    x="130"
-                    y="6"
-                    width="140"
-                    height="38"
-                    rx="8"
-                    fill="rgba(77,141,255,0.14)"
-                    stroke="rgba(77,141,255,0.4)"
-                    stroke-width="1"
-                  />
-                  <text
-                    x="200"
-                    y="22"
-                    text-anchor="middle"
-                    font-family="'JetBrains Mono',monospace"
-                    font-size="7"
-                    fill="rgba(138,150,180,0.9)"
-                    letter-spacing="1.5"
-                  >
-                    PIMPINAN
-                  </text>
-                  <text
-                    x="200"
-                    y="36"
-                    text-anchor="middle"
-                    font-family="'Space Grotesk',sans-serif"
-                    font-weight="600"
-                    font-size="12"
-                    fill="#ffffff"
-                  >
-                    Direktur Utama
-                  </text>
-
-                  <!-- BOX: Operasional -->
-                  <rect
-                    x="10"
-                    y="92"
-                    width="112"
-                    height="34"
-                    rx="7"
-                    fill="rgba(14,24,48,0.8)"
-                    stroke="rgba(120,150,210,0.2)"
-                    stroke-width="1"
-                  />
-                  <text
-                    x="66"
-                    y="106"
-                    text-anchor="middle"
-                    font-family="'JetBrains Mono',monospace"
-                    font-size="6.5"
-                    fill="rgba(138,150,180,0.8)"
-                    letter-spacing="1.2"
-                  >
-                    DIVISI
-                  </text>
-                  <text
-                    x="66"
-                    y="119"
-                    text-anchor="middle"
-                    font-family="'Space Grotesk',sans-serif"
-                    font-weight="600"
-                    font-size="11"
-                    fill="#74a8ff"
-                  >
-                    Operasional
-                  </text>
-
-                  <!-- BOX: HR & GA -->
-                  <rect
-                    x="144"
-                    y="92"
-                    width="112"
-                    height="34"
-                    rx="7"
-                    fill="rgba(14,24,48,0.8)"
-                    stroke="rgba(120,150,210,0.2)"
-                    stroke-width="1"
-                  />
-                  <text
-                    x="200"
-                    y="106"
-                    text-anchor="middle"
-                    font-family="'JetBrains Mono',monospace"
-                    font-size="6.5"
-                    fill="rgba(138,150,180,0.8)"
-                    letter-spacing="1.2"
-                  >
-                    DIVISI
-                  </text>
-                  <text
-                    x="200"
-                    y="119"
-                    text-anchor="middle"
-                    font-family="'Space Grotesk',sans-serif"
-                    font-weight="600"
-                    font-size="11"
-                    fill="#74a8ff"
-                  >
-                    HR &amp; GA
-                  </text>
-
-                  <!-- BOX: Keuangan -->
-                  <rect
-                    x="278"
-                    y="92"
-                    width="112"
-                    height="34"
-                    rx="7"
-                    fill="rgba(14,24,48,0.8)"
-                    stroke="rgba(120,150,210,0.2)"
-                    stroke-width="1"
-                  />
-                  <text
-                    x="334"
-                    y="106"
-                    text-anchor="middle"
-                    font-family="'JetBrains Mono',monospace"
-                    font-size="6.5"
-                    fill="rgba(138,150,180,0.8)"
-                    letter-spacing="1.2"
-                  >
-                    DIVISI
-                  </text>
-                  <text
-                    x="334"
-                    y="119"
-                    text-anchor="middle"
-                    font-family="'Space Grotesk',sans-serif"
-                    font-weight="600"
-                    font-size="11"
-                    fill="#74a8ff"
-                  >
-                    Keuangan
-                  </text>
-
-                  <!-- BOX: HR Admin -->
-                  <rect
-                    x="92"
-                    y="164"
-                    width="112"
-                    height="34"
-                    rx="7"
-                    fill="rgba(70,200,232,0.07)"
-                    stroke="rgba(70,200,232,0.25)"
-                    stroke-width="1"
-                  />
-                  <text
-                    x="148"
-                    y="178"
-                    text-anchor="middle"
-                    font-family="'JetBrains Mono',monospace"
-                    font-size="6.5"
-                    fill="rgba(138,150,180,0.8)"
-                    letter-spacing="1.2"
-                  >
-                    DEPT.
-                  </text>
-                  <text
-                    x="148"
-                    y="191"
-                    text-anchor="middle"
-                    font-family="'Space Grotesk',sans-serif"
-                    font-weight="600"
-                    font-size="11"
-                    fill="#46c8e8"
-                  >
-                    HR Admin
-                  </text>
-
-                  <!-- BOX: IT (highlighted — penempatan magang) -->
-                  <rect
-                    x="196"
-                    y="164"
-                    width="112"
-                    height="34"
-                    rx="7"
-                    fill="rgba(77,141,255,0.12)"
-                    stroke="rgba(77,141,255,0.45)"
-                    stroke-width="1.5"
-                    stroke-dasharray="4 2"
-                  />
-                  <text
-                    x="252"
-                    y="178"
-                    text-anchor="middle"
-                    font-family="'JetBrains Mono',monospace"
-                    font-size="6.5"
-                    fill="rgba(138,150,180,0.8)"
-                    letter-spacing="1.2"
-                  >
-                    DEPT.
-                  </text>
-                  <text
-                    x="252"
-                    y="191"
-                    text-anchor="middle"
-                    font-family="'Space Grotesk',sans-serif"
-                    font-weight="600"
-                    font-size="11"
-                    fill="#74a8ff"
-                  >
-                    IT
-                  </text>
-
-                  <!-- Label penempatan magang -->
-                  <rect
-                    x="176"
-                    y="210"
-                    width="152"
-                    height="22"
-                    rx="6"
-                    fill="rgba(77,141,255,0.07)"
-                    stroke="rgba(77,141,255,0.25)"
-                    stroke-width="1"
-                    stroke-dasharray="3 2"
-                  />
-                  <text
-                    x="252"
-                    y="225"
-                    text-anchor="middle"
-                    font-family="'JetBrains Mono',monospace"
-                    font-size="7.5"
-                    fill="#4d8dff"
-                    letter-spacing="0.8"
-                  >
-                    ← Penempatan Magang
-                  </text>
-                </svg>
-
-                <!-- Nama supervisor dari CONFIG -->
-                <div
-                  style="
-                    margin-top: 8px;
-                    padding: 9px 14px;
-                    border-radius: 8px;
-                    border: 1px dashed rgba(77, 141, 255, 0.28);
-                    background: rgba(77, 141, 255, 0.05);
-                    display: flex;
-                    align-items: center;
-                    gap: 9px;
-                  "
-                >
+            <!-- BARIS 2: Struktur Organisasi — full width -->
+            <div class="card glow" style="margin-top: 16px; padding: 22px 28px">
+              <div class="card-h">
+                <div class="ic">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
-                    style="
-                      width: 14px;
-                      height: 14px;
-                      color: var(--blue-bright);
-                      flex: none;
-                    "
                   >
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
+                    <rect x="8" y="2" width="8" height="5" rx="1" />
+                    <rect x="1" y="15" width="6" height="5" rx="1" />
+                    <rect x="9" y="15" width="6" height="5" rx="1" />
+                    <rect x="17" y="15" width="6" height="5" rx="1" />
+                    <path d="M4 15v-3h16v3" />
+                    <path d="M12 7v5" />
                   </svg>
-                  <div style="font-size: 12.5px; color: var(--ink-dim)">
-                    Supervisor:
-                    <b style="color: var(--ink)" id="cv-sup-org2">—</b>
-                    <span
-                      style="
-                        font-family: var(--mono);
-                        font-size: 9px;
-                        color: var(--ink-faint);
-                        margin-left: 6px;
-                      "
-                      id="cv-suprole-org2"
-                    ></span>
-                  </div>
+                </div>
+                <div>
+                  <div class="t">Struktur Organisasi</div>
+                  <div class="s">Organization Structure</div>
+                </div>
+              </div>
+
+              <svg
+                viewBox="0 0 700 200"
+                xmlns="http://www.w3.org/2000/svg"
+                style="
+                  width: 100%;
+                  height: auto;
+                  overflow: visible;
+                  display: block;
+                  margin-top: 8px;
+                "
+              >
+                <!-- ============ GARIS ============ -->
+                <!-- Direktur Utama → Direktur Operational -->
+                <line
+                  x1="350"
+                  y1="38"
+                  x2="350"
+                  y2="58"
+                  stroke="rgba(120,150,210,0.3)"
+                  stroke-width="1.5"
+                />
+                <!-- Direktur Operational → Finance GM -->
+                <line
+                  x1="350"
+                  y1="94"
+                  x2="350"
+                  y2="114"
+                  stroke="rgba(120,150,210,0.3)"
+                  stroke-width="1.5"
+                />
+                <!-- Finance GM → IT -->
+                <line
+                  x1="350"
+                  y1="150"
+                  x2="350"
+                  y2="170"
+                  stroke="rgba(120,150,210,0.3)"
+                  stroke-width="1.5"
+                />
+                <!-- IT → percabangan kiri & kanan (turun ke y=185 dulu, lalu horizontal) -->
+                <line
+                  x1="350"
+                  y1="185"
+                  x2="350"
+                  y2="196"
+                  stroke="rgba(120,150,210,0.3)"
+                  stroke-width="1.5"
+                />
+                <line
+                  x1="168"
+                  y1="185"
+                  x2="532"
+                  y2="185"
+                  stroke="rgba(120,150,210,0.3)"
+                  stroke-width="1.5"
+                />
+                <line
+                  x1="168"
+                  y1="185"
+                  x2="168"
+                  y2="196"
+                  stroke="rgba(120,150,210,0.3)"
+                  stroke-width="1.5"
+                />
+                <line
+                  x1="532"
+                  y1="185"
+                  x2="532"
+                  y2="196"
+                  stroke="rgba(120,150,210,0.3)"
+                  stroke-width="1.5"
+                />
+
+                <!-- ============ BOX LEVEL 1: Direktur Utama ============ -->
+                <rect
+                  x="230"
+                  y="4"
+                  width="240"
+                  height="34"
+                  rx="8"
+                  fill="rgba(77,141,255,0.16)"
+                  stroke="rgba(77,141,255,0.45)"
+                  stroke-width="1"
+                />
+                <text
+                  x="350"
+                  y="18"
+                  text-anchor="middle"
+                  font-family="'JetBrains Mono',monospace"
+                  font-size="7"
+                  fill="rgba(138,150,180,0.85)"
+                  letter-spacing="1.5"
+                >
+                  PIMPINAN
+                </text>
+                <text
+                  x="350"
+                  y="32"
+                  text-anchor="middle"
+                  font-family="'Space Grotesk',sans-serif"
+                  font-weight="600"
+                  font-size="12"
+                  fill="#ffffff"
+                >
+                  Direktur Utama
+                </text>
+
+                <!-- ============ BOX LEVEL 2: Direktur Operational ============ -->
+                <rect
+                  x="230"
+                  y="58"
+                  width="240"
+                  height="36"
+                  rx="8"
+                  fill="rgba(14,24,48,0.9)"
+                  stroke="rgba(120,150,210,0.25)"
+                  stroke-width="1"
+                />
+                <text
+                  x="350"
+                  y="73"
+                  text-anchor="middle"
+                  font-family="'JetBrains Mono',monospace"
+                  font-size="7"
+                  fill="rgba(138,150,180,0.75)"
+                  letter-spacing="1.2"
+                >
+                  PIMPINAN
+                </text>
+                <text
+                  x="350"
+                  y="88"
+                  text-anchor="middle"
+                  font-family="'Space Grotesk',sans-serif"
+                  font-weight="600"
+                  font-size="11.5"
+                  fill="#74a8ff"
+                >
+                  Direktur Operational
+                </text>
+
+                <!-- ============ BOX LEVEL 3: Finance & IS GM ============ -->
+                <rect
+                  x="196"
+                  y="114"
+                  width="308"
+                  height="36"
+                  rx="8"
+                  fill="rgba(14,24,48,0.9)"
+                  stroke="rgba(120,150,210,0.25)"
+                  stroke-width="1"
+                />
+                <text
+                  x="350"
+                  y="129"
+                  text-anchor="middle"
+                  font-family="'JetBrains Mono',monospace"
+                  font-size="7"
+                  fill="rgba(138,150,180,0.75)"
+                  letter-spacing="1.2"
+                >
+                  GENERAL MANAGER
+                </text>
+                <text
+                  x="350"
+                  y="144"
+                  text-anchor="middle"
+                  font-family="'Space Grotesk',sans-serif"
+                  font-weight="600"
+                  font-size="11.5"
+                  fill="#74a8ff"
+                >
+                  Finance &amp; Information System GM
+                </text>
+
+                <!-- ============ BOX LEVEL 4: IT ============ -->
+                <rect
+                  x="296"
+                  y="170"
+                  width="108"
+                  height="32"
+                  rx="7"
+                  fill="rgba(14,24,48,0.9)"
+                  stroke="rgba(120,150,210,0.25)"
+                  stroke-width="1"
+                />
+                <text
+                  x="350"
+                  y="184"
+                  text-anchor="middle"
+                  font-family="'JetBrains Mono',monospace"
+                  font-size="7"
+                  fill="rgba(138,150,180,0.75)"
+                  letter-spacing="1.2"
+                >
+                  DEPARTEMEN
+                </text>
+                <text
+                  x="350"
+                  y="197"
+                  text-anchor="middle"
+                  font-family="'Space Grotesk',sans-serif"
+                  font-weight="600"
+                  font-size="12"
+                  fill="#74a8ff"
+                >
+                  IT
+                </text>
+
+                <!-- ============ BOX LEVEL 5 kiri: IT Application Development ============ -->
+                <rect
+                  x="60"
+                  y="196"
+                  width="216"
+                  height="34"
+                  rx="7"
+                  fill="rgba(77,141,255,0.1)"
+                  stroke="rgba(77,141,255,0.35)"
+                  stroke-width="1"
+                  stroke-dasharray="4 2"
+                />
+                <text
+                  x="168"
+                  y="211"
+                  text-anchor="middle"
+                  font-family="'JetBrains Mono',monospace"
+                  font-size="6.5"
+                  fill="rgba(138,150,180,0.75)"
+                  letter-spacing="1"
+                >
+                  SUB-DEPT.
+                </text>
+                <text
+                  x="168"
+                  y="225"
+                  text-anchor="middle"
+                  font-family="'Space Grotesk',sans-serif"
+                  font-weight="600"
+                  font-size="10.5"
+                  fill="#74a8ff"
+                >
+                  IT Application Development
+                </text>
+
+                <!-- ============ BOX LEVEL 5 kanan: IT Support & Infrastructure ============ -->
+                <rect
+                  x="424"
+                  y="196"
+                  width="216"
+                  height="34"
+                  rx="7"
+                  fill="rgba(77,141,255,0.1)"
+                  stroke="rgba(77,141,255,0.35)"
+                  stroke-width="1"
+                  stroke-dasharray="4 2"
+                />
+                <text
+                  x="532"
+                  y="211"
+                  text-anchor="middle"
+                  font-family="'JetBrains Mono',monospace"
+                  font-size="6.5"
+                  fill="rgba(138,150,180,0.75)"
+                  letter-spacing="1"
+                >
+                  SUB-DEPT.
+                </text>
+                <text
+                  x="532"
+                  y="225"
+                  text-anchor="middle"
+                  font-family="'Space Grotesk',sans-serif"
+                  font-weight="600"
+                  font-size="10.5"
+                  fill="#74a8ff"
+                >
+                  IT Support &amp; Infrastructure
+                </text>
+
+                <!-- Label penempatan magang (di bawah IT Application Development) -->
+                <rect
+                  x="68"
+                  y="237"
+                  width="200"
+                  height="18"
+                  rx="5"
+                  fill="rgba(77,141,255,0.06)"
+                  stroke="rgba(77,141,255,0.22)"
+                  stroke-width="1"
+                />
+                <text
+                  x="168"
+                  y="249"
+                  text-anchor="middle"
+                  font-family="'JetBrains Mono',monospace"
+                  font-size="7"
+                  fill="#4d8dff"
+                  letter-spacing="0.8"
+                >
+                  ← Penempatan Magang
+                </text>
+              </svg>
+
+              <!-- Supervisor info -->
+              <div
+                style="
+                  margin-top: 14px;
+                  padding: 9px 14px;
+                  border-radius: 8px;
+                  border: 1px dashed rgba(77, 141, 255, 0.28);
+                  background: rgba(77, 141, 255, 0.05);
+                  display: flex;
+                  align-items: center;
+                  gap: 9px;
+                "
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  style="
+                    width: 14px;
+                    height: 14px;
+                    color: var(--blue-bright);
+                    flex: none;
+                  "
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                <div style="font-size: 12.5px; color: var(--ink-dim)">
+                  Supervisor:
+                  <b style="color: var(--ink)" id="cv-sup-org2">—</b>
+                  <span
+                    style="
+                      font-family: var(--mono);
+                      font-size: 9px;
+                      color: var(--ink-faint);
+                      margin-left: 6px;
+                    "
+                    id="cv-suprole-org2"
+                  ></span>
                 </div>
               </div>
             </div>
